@@ -1,0 +1,201 @@
+\chapter{一维问题}
+\begin{center}
+    \textcolor[RGB]{255, 0, 0}{\faHeart}我们只能描述现象，不能透过它看清实质。\textcolor[RGB]{255, 0, 0}{\faHeart}
+\end{center}
+\rightline{——点波推测}
+\vspace{-5pt}
+\begin{center}
+    \pgfornament[width=0.36\linewidth,color=lsp]{88}
+\end{center}
+
+\section{一维定态薛定谔方程、本征方程}
+
+\subsection{一维定态S-eq（一维问题可以普遍推广）}
+
+$$
+i\hbar \frac{\partial}{\partial t}\psi(x,t) = [-\frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2} + V(x)] \psi(x,t)
+$$
+定态方程：$$
+[-\frac{\hbar^2}{2m} \frac{d^2}{d x^2} + V(x)] \, \psi(x) = E \,\psi(x), \,\, \psi\text{为本征函数，E为本征值。}$$
+回顾：本征函数，本征值。
+$$\left\{ \begin{matrix}
+\text{线性代数：有限维矩阵}\\
+\text{量子力学：算子（哈氏表述）} \Rightarrow \text{无限维矩阵}
+
+\end{matrix}\right.$$
+
+\begin{table}[htbp]
+\centering
+
+%下面一行命令用来控制行高
+%可用 \setlength{\tabcolsep}{1pt} 来调整表格的列间距离 （十分推荐） 。
+%可用 \renewcommand\arraystretch{1.5} 来调整表格行间距，意思是将每一行的高度变为原来的1.5倍 （十分推荐） 。
+%如果表格太大，可以使用 \scalebox{1.5} 来对表格进行缩放，意思是将表格的大小变为原来的1.5倍 （十分推荐），使用的时候需要添加包 \usepackage{graphicx} 。
+                        
+\renewcommand\arraystretch{1.5}{
+
+\begin{tabular}{|c|c|c|}
+\hline
+        &有限维矩阵 & 无限维矩阵 \\ \hline
+    迹  & 对角元和$\sum_{i}^{n}{\lambda_i}$一定有限  & 对角元和$\sum_{i}^{n}{\lambda_i}$不一定有限 \\ \hline
+行列式(特殊情况可对角化) & 本征值之积$\prod_{i}^{n}{\lambda_i}$一定有限 & 本征值之积$\prod_{i}^{n}{\lambda_i} $不一定有限  \\
+\hline
+\end{tabular}}
+\end{table}
+
+
+\subsubsection{本征问题——对角问题}
+矩阵对角化$
+\left( \begin{matrix}
+    a&      \cdots&     c\\
+    \vdots&     \ddots&     \vdots\\
+    g&      \cdots&     i\\
+\end{matrix} \right) \xrightarrow{\text{等价变换}}\left( \begin{matrix}
+    A&      \cdots&     0\\
+    \vdots&     \ddots&     \vdots\\
+    0&      \cdots&     C\\
+\end{matrix} \right) 
+$
+
+Q:在什么意义下等价？
+
+线性代数出发点：对于线性方程组
+
+$$
+\boldsymbol{Ax}=\boldsymbol{b} \Longleftrightarrow
+\boldsymbol{A}=\left[ \begin{matrix}{l}
+    a_{11}&     a_{12}&     \cdots&     a_{1n}\\
+    a_{21}&     a_{22}&     \cdots&     a_{2n}\\
+    \vdots&     \vdots&     \ddots&     \vdots\\
+    a_{n1}&     a_{n2}&     \cdots&     a_{nn}\\
+\end{matrix} \right] ,\,\,\boldsymbol{x}=\left[ \begin{array}{c}
+    x_1\\
+    x_2\\
+    \vdots\\
+    x_n\\
+\end{array} \right] ,\,\,\boldsymbol{b}=\left[ \begin{array}{c}
+    b_1\\
+    b_2\\
+    \vdots\\
+    b_n\\
+\end{array} \right] 
+$$
+建立增广矩阵
+$$
+\boldsymbol{\bar{A}}=\left[ \begin{matrix}
+    \boldsymbol{A}&     \boldsymbol{b}\\
+\end{matrix} \right] =\left[ \begin{matrix}
+    a_{11}&     a_{12}&     \cdots&     a_{1n}&     b_1\\
+    a_{21}&     a_{22}&     \cdots&     a_{2n}&     b_2\\
+    \vdots&     \vdots&     \ddots&     \vdots&     \vdots\\
+    a_{n1}&     a_{n2}&     \cdots&     a_{nn}&     b_n\\
+\end{matrix} \right] 
+\xlongrightarrow[\text{化为如下形式的梯形矩阵}]{\text{若能将增广矩阵}\boldsymbol{\bar{A}}\text{做初等行变换}}
+\left[ \begin{matrix}
+    1&      &       &       &       \xi _1\\
+    &       1&      &       &       \xi _2\\
+    &       &       \ddots&     &       \vdots\\
+    &       &       &       1&      \xi _n\\
+\end{matrix} \right] 
+$$
+$
+\text{则}\xi _1,\xi _2,\cdots \xi _n\text{即为方程组的解}\left\{ \begin{array}{l}
+    a_{11}x_1+a_{12}x_2+\cdots +a_{1n}x_n=0\\
+    a_{21}x_1+a_{22}x_2+\cdots +a_{2n}x_n=0\\
+    \cdots \,\,\cdots \,\,\cdots \,\,\cdots\\
+    a_{m1}x_1+a_{m2}x_2+\cdots +a_{mn}x_n=0\\
+\end{array} \right. 
+$
+
+上述过程中对矩阵进行了等价变换，这种等价是\textcolor{red}{解不变意义下的等价。}
+
+矩阵一定可以化为约当标准型，但不一定可以对角化。
+
+在物理中遇到的问题通常特殊，具有良好的数学性质，数学问题往往逻辑自洽，考虑各种极限条件，太过于“抽象”，没有现实性。
+
+本征矢：$$\text{本征关系}\left\{ \begin{matrix}
+\text{线性代数:}(\alpha\,\beta\,\gamma)\left(\begin{matrix}a\\b\\c
+\end{matrix}\right)= \left(\begin{matrix}d\\e\\f\end{matrix}\right) \xlongrightarrow{\text{如果成立}} \lambda\left(\begin{matrix}a\\b\\c\end{matrix}\right)\\
+\text{量子力学:} \hat{D}\psi \, \xlongrightarrow{\text{如果成立}} \, \Lambda \psi
+\end{matrix}\right.
+$$
+
+\subsubsection{一维定态薛定谔方程(核心问题)}
+
+
+
+
+
+
+\section{简并}
+
+
+
+
+
+
+
+
+\section{一维定态波函数可表示为实函数}
+
+
+
+
+
+
+
+
+
+\section{宇称}
+
+
+
+
+
+
+
+
+\section{一维束缚态本征函数的节点}
+
+
+
+
+
+
+
+\section{奇异势、无限深势阱}
+
+
+
+
+
+
+
+
+
+
+\section{有限深势阱}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

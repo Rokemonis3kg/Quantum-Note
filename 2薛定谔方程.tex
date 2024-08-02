@@ -1,0 +1,274 @@
+\chapter{薛定谔方程}
+\begin{center}
+    \textcolor[RGB]{255, 0, 0}{\faHeart}揭示是量子世界需要一种深邃的直觉，而不仅仅是数学上的技巧。\textcolor[RGB]{255, 0, 0}{\faHeart}
+\end{center}
+\rightline{里奇·弗里曼(Rich Freeman)}
+\vspace{-5pt}
+\begin{center}
+    \pgfornament[width=0.36\linewidth,color=lsp]{88}
+\end{center}
+
+\section{波动方程}
+类比与牛顿力学中的$F=ma$，它是怎么来的？如何理解？
+
+$\text{德布罗意：物质是波！} \longrightarrow \text{德拜：找波的方程。} \longrightarrow \text{薛定谔：我找到了！}$
+
+牛顿：自由粒子做匀速直线运动，其波为平面波。
+
+类比：物质是波。
+
+$$\text{平面波的波函数：}\Longrightarrow \text{微观粒子:}$$
+$$
+\boldsymbol{\phi }(\boldsymbol{x,t})=\left\{ \begin{array}{l}
+  e^{i\left( k\boldsymbol{x}-\omega \boldsymbol{t} \right)}\\
+  \sin \left( k\boldsymbol{x}-\omega \boldsymbol{t} \right)\\
+  \cos \left( k\boldsymbol{x}-\omega \boldsymbol{t} \right)\\
+\end{array} \right. \xrightarrow[E=\hbar \omega]{\boldsymbol{p}=\hbar \boldsymbol{\nu }}e^{\frac{i}{\hbar }\left( \boldsymbol{px}-Et \right)}=\boldsymbol{\phi} \left( \boldsymbol{x,t} \right) 
+$$
+首先看平面波满足的方程：
+
+随时间变化：
+\begin{equation}\label{inter}
+    \frac{\partial}{\partial t}e^{\frac{i}{\hbar}(\boldsymbol{px}-Et)}=-\frac{i}{\hbar}Ee^{\frac{i}{\hbar}(\boldsymbol{px}-Et)}
+\end{equation}
+
+随空间变化：
+\begin{equation}\label{inter}
+    \frac{\partial}{\partial \boldsymbol{x}}e^{\frac{i}{\hbar}(\boldsymbol{px}-Et)}=\frac{i}{\hbar}\boldsymbol{p}e^{\frac{i}{\hbar}(\boldsymbol{px}-Et)}
+\end{equation}
+
+在上面两式中：$\frac{\partial}{\partial t}$ 和 $\frac{\partial}{\partial \boldsymbol{x}}$ 为算符，$-\frac{i}{\hbar}E$ 和 $\frac{i}{\hbar}\boldsymbol{p}$ 为力学量，可以看出，两组微分算符和力学量之间有某种对应关系。
+
+\textcolor{blue}{力学量是算符！（小海:力学量是矩阵）}
+
+自由粒子满足的方程：$E=\frac{p^2}{2m}$ , $i\hbar \frac{\partial}{\partial t}\psi \left( \boldsymbol{x,t} \right) =-\frac{\hbar ^2}{2m}\frac{d^2}{dx^2}\psi \left( \boldsymbol{x,t} \right) $
+
+\textcolor{gray}{算子作用到函数上才有意义}
+
+薛定谔猜：不自由的粒子（带外力）：$E=\frac{\left| \boldsymbol{\vec{p}} \right|^2}{2m}+\boldsymbol{V}\left( \boldsymbol{\vec{x},t} \right) $ , $E\rightarrow i\hbar \frac{\partial}{\partial t}$ ， $\boldsymbol{\vec{p}}\rightarrow -i\hbar \nabla $ (\textcolor{red}{力学量是算符！})
+
+代换得：$i\hbar \frac{\partial}{\partial t}\psi \left( \boldsymbol{\vec{x},t} \right) =\left[ -\frac{\hbar ^2}{2m}\nabla ^2+\boldsymbol{V}\left( \boldsymbol{x,t} \right) \right] \psi \left( \boldsymbol{\vec{x},t} \right) $
+
+但问题是：这种猜想与结果是否正确呢？
+
+检验：用S-eq算一个试验能测的，氢原子线系。(势能带入库仑势，解出能量)
+
+其它情况：
+\begin{enumerate}
+\item 相对论:
+
+$$E=\sqrt{p^2c^2+m_0^2c^4} \xrightarrow{\text{根号不解析}} E^2=p^2c^2+m_0^2c^4 \Longrightarrow -\frac{\hbar ^2}{c^2}\frac{\partial ^2}{\partial t^2}\psi =\left( -\hbar ^2\nabla ^2+m_0^2c^2 \right)\psi \text{——克莱因}·\text{高登方程}$$
+
+K-G方程没有开方，平方解含有正负能(负能困难-负几率困难)，Dirac方程做了开方，但不是真正意义上的开方，也含有正负能。
+\item 多粒子系统
+
+$E=\sum_{i=1}^n{\frac{\left| \boldsymbol{p}_{\boldsymbol{i}} \right|^2}{2m_i}}+V\left( \vec{x}_1,\vec{x}_2,...,\vec{x}_n \right) $ (这个V比较复杂，动能相加，但是势能不能。)
+
+$E\rightarrow i\hbar \frac{\partial}{\partial t},\boldsymbol{\vec{p}}_i\rightarrow -i\hbar \nabla _i$
+
+$i\hbar \frac{\partial}{\partial t}\psi \left( \vec{x}_1,\vec{x}_2,...,\vec{x}_n,t \right) =\left[ \sum_{i=1}^n{-\frac{\hbar ^2}{2m_{i}^{2}}\nabla _{i}^{2}}+V\left( \vec{x}_1,\vec{x}_2,...,\vec{x}_n \right) \right] $
+
+\textcolor{blue}{注：平面波为什么不用$sin(kx-\omega t),cos(kx-\omega t)$ ？\\ 其实最后也能得到一个方程，但是用氢原子检验结果对不上。}
+\end{enumerate}
+
+
+
+
+\section{波函数}
+
+
+$$
+\text{物质}\left\{ \begin{matrix}
+    \text{粒子}& \rightarrow& \text{玻尔}& \rightarrow& \text{海森堡}\\
+    \text{波}& \rightarrow& \text{德布罗意}& \rightarrow& \text{薛定谔}\\
+\end{matrix} \right. 
+$$
+
+波粒二象性：粒子不是波组成的；波不是粒子的集体运动。
+
+(1)粒子不是波组成的：波包的行为像粒子，但是若粒子是波包$\Rightarrow$真空色散
+
+自由粒子的动量完全确定（匀速）$\Rightarrow$则位置完全不确定(全空间弥散)。
+
+若将波包定域化？
+
+回顾牛顿：光通过介质（棱镜）会色散（速度不同），但是真空中不会（c不变）。\textcolor{blue}{物质波在真空中会色散，速度不同。(why?)}
+
+(2)波不是粒子的集体运动（由单光子干涉试验验证）
+
+(3)玻恩的几率解释（波函数是什么？）单粒子的行为是几率的。
+
+%阅后即焚
+\begin{ascolorbox5}[]{阅后即焚}[black!50!white][coltext=cyan!40!white]
+    几率解释是物理问题吗？判据：能否被实验验证。………………
+\end{ascolorbox5}
+
+\subsection{波函数是什么——几率振幅}
+薛定谔方程：
+
+$$i\hbar\frac{\partial}{\partial t}=(-\frac{\hbar^2}{2m}\nabla^2+V)\psi
+$$
+
+$\psi$一定是复数，即非几率，若$\psi$ 为实数，则只能为0，因为$i\hbar$ 为纯虚数。
+
+类比光学：用振幅解释干涉
+
+$$\left|\text{振幅}\right|^2=\text{强度} \longrightarrow \left|\psi \right|^2= \text{几率}$$
+
+振幅不可观测，几率可观测。(量子力学也有干涉)
+
+\textcolor{blue}{结论}：$\psi$是几率振幅，$\left|\psi\right|^2$是几率密度。
+
+
+\subsection{干涉}
+叠加的是几率振幅，不是几率。
+
+$$\psi=\psi_1+\psi_2 \text{振幅叠加}$$
+$$|\psi|^2=|\psi_1|^2+|\psi_2|^2+\psi_2^*\psi_1+\psi_1^*\psi_2 \text{几率叠加(后两项为干涉项)}$$
+
+\subsection{线性叠加原理}
+\textcolor{blue}{结论}：几率振幅是线性叠加。
+
+%随阅随焚
+\begin{ascolorbox5}[]{阅后即焚}[black!50!white][coltext=cyan!40!white]
+    \begin{enumerate}
+    \item S-eq是对的——实验验证
+    \item S-eq 是线性方程
+    \item 线性方程解可以线性叠加
+    \item S-eq解线性叠加
+    \item 物理态是S-eq的解
+    \item 物理态是线性叠加的
+    \end{enumerate}
+    因此，试验所说的$\psi$(几率增幅)是线性叠加！
+    
+    许多书类比光学，光线性叠加$\rightarrow \psi$线性叠加，这种做法不"安全！"
+
+    (经典)光学是线性的——非常偶然，这是因为Maxwell-eq是线性是偶然的。
+
+    光对应电磁作用，是线性的，其余三种作用是非线性的，不可以线性叠加。
+
+    而量子力学与经典电磁理论是线性这件事无关！
+
+    补充：经典电磁学是线性的——光子之间无相互作用，而在量子电磁学中，它们之间存在高阶量子效应(小量)。
+
+\end{ascolorbox5}
+
+\subsection{波函数的归一化问题}
+    对于方程$$ i\hbar\frac{\partial}{\partial t} = H \Psi $$
+    其为一个其次方程，由实验说明。$\Psi$ 和 $c\Psi$ 都是方程的解 $\Rightarrow$ 选择哪一个呢？
+
+    因此，附加一个要求"归一化条件",但是为什么要归一化？
+$$
+\left\{ \begin{matrix}
+    \text{相信几率解释}& \Rightarrow& \text{几率必须归一}\\
+    \text{不信几率解释}& \Rightarrow& \text{那你也可以做一个归"n"化}
+\end{matrix}\right.
+ $$
+$\int_{\Omega}{|\psi| ^2 d\Omega}=1$  \, \,\, $\frac{\int{\psi ^* F\psi \,dx}}{\int{\psi ^* \psi \,dx}}$ \, ，易得归一化常数为$c=\frac{1}{\sqrt{\int_{\Omega}{|\psi|^2 dV}}}$。
+
+\subsection{相因子}
+薛定谔方程给出的$\psi$是复数，而归一化条件为实条件，$\psi \Rightarrow c\psi$，c为复数。
+
+结论：归一化条件不能完全确定c，只能确定c的模。
+ 
+？？？？？？？？？？？？？？？？？？？？？后续再做补充。
+
+
+
+\subsection{王涛问题}
+
+后续补充
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{几率(定域)守恒与几率流密度}
+
+牛顿（力学的顶梁柱）：粒子数不变$\Rightarrow$ 自由度数不变
+
+$F_x' = m\ddot{x},F_y' = m\ddot{y},F_z' = m\ddot{z},\cdots,$方程数 = 自由度数。
+
+求解过程中方程数不变 $\Rightarrow$ 自由度数不变 $\Rightarrow$ 粒子数不变。
+
+\textcolor{green}{力学中粒子数不变，意味着粒子不能凭空产生或消失}
+
+力学不能解决粒子的产生消失问题$\Rightarrow$若一个过程伴随着粒子的产生或消失问题，则不能用力学描述。
+
+\subsection{经典物理中如何处理产生、消失问题？}
+
+如开灯关灯——光的产生消失（电磁学）。
+
+为什么力学不能描述产生与消失？自由度数不变（方程数不变）。
+
+如果自由度数无穷大？此时无论是产生还是消失，自由度数仍为无穷。
+
+有限大自由度系统中粒子数变化改变自由度，而无穷大没有影响$\Rightarrow$ 用无穷大自由度系统描述产生消失问题。
+
+无穷大自由度系统 $\Rightarrow$ 场（空间中每一个点上都有）
+
+\textcolor{brown}{小结：粒子数的改变可用场来描述。}
+
+例如：光$\Rightarrow$电磁场
+$$\text{调光 = 调场强} \left\{ \begin{matrix}
+\text{调大：产生光} \\ \text{调小：消失光} 
+\end{matrix}\right.$$
+
+\subsection{一个错误}
+
+ $$\text{后续补充}$$
+
+
+
+
+\subsection{定域守恒与流（量子力学中是定域守恒）}
+
+定域守恒：存在流（如大变活人，存在一个“人流———途径”）
+
+量子力学中的流：$$ \vec{j} = -\frac{i \hbar}{2m} (\psi ^* \nabla \psi - \psi \nabla \psi ^*) \xlongequal{\vec{p} = -i\hbar\nabla} \frac{1}{2m}(\psi ^*\vec{p} \psi - \psi \vec{p} \psi ^*) ,\text{\textcolor{red}{核心}；} \frac{\vec{p}}{m} = \vec{v} $$
+
+牛顿：单粒子流就是速度
+
+\textcolor{red}{小结:(量子)力学中粒子数定域守恒，存在流}
+
+
+\section{量子力学的经典极限}
+目前认为量子力学是精确的，经典力学是近似的。
+
+\textcolor{blue}{量子$\xlongrightarrow{h \rightarrow 0}$经典}
+
+例：（测不准关系）
+
+\textcolor{red}{需要补充，且请了解泊松括号与对易括号，正则量子化条件。}
+
+
+
+\section{定态方程}
+
+$$i\hbar\frac{\partial\psi}{\partial t} = (-\frac{\hbar^2}{2m}\nabla^2 + V)\psi,(-\frac{\hbar^2}{2m}\nabla^2 + V = H,\text{即哈氏量},V=V(x),闭系)$$
+
+$$\left\{ \begin{matrix}
+\text{封闭系：H不含t  ——  H就是能量，封闭系能量守恒。}\\
+\text{开系：H可以含t（但非必要，比如定态）}
+\end{matrix} \right.$$
+
+从某种意义上，闭系更为基本，开系是无奈之举（闭系解决不了，弄成开系）。
+
+H不含t，$i\hbar \frac{\partial \psi}{\partial t}=H\psi $,可以分离变量得：$\psi(\vec{r},t)=\varphi(\vec{r})f(t) $,从而有：
+$$ i \hbar \frac{\partial\varphi(\vec{r})f(t)}{\partial t} = H\varphi(\vec{r})f(t) $$
+$$ \frac{i\hbar}{f(t)} \frac{df(t)}{dt} = \frac{1}{\varphi(\vec{r})} [-\frac{\hbar^2}{2m} \nabla^2 +V(\vec{r})]\varphi(\vec{r}) = E $$
+$$ \left\{ \begin{matrix}
+i\hbar\frac{df(t)}{dt} = Ef(t)  \rightarrow  f(t) = ce^{-\frac{i}{\hbar}Et}\\H\varphi = E\varphi \,\, ,(H=T+V)
+\end{matrix} \right\} \varphi(\vec{r},t) = \varphi_E(\vec{r})e^{-\frac{i}{\hbar}Et}$$
+对于封闭系而言，核心问题变为$H\varphi _E(\vec{r}) = E\varphi_E(\vec{r}) $
+
+\subsection{玻尔定态(德布罗意的解释过于依赖封闭轨道) }
+
